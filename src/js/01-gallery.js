@@ -12,10 +12,12 @@ function createGalleryItemsLibrary(galleryItems) {
       return ` 
         <li class = "pictures">
         <a class="link" 
-        href="${preview}">
+        href="${original}">
         <img class= "images"
+        src="${preview}"
         alt = "${description}"
-        width="360"/>
+        height="360"
+        width = "360"/>
         </a>
      </li>`;
     })
