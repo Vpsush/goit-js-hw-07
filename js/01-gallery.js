@@ -1,10 +1,10 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-const gallaryContainer = document.querySelector(".gallery");
-const gallaryMarkUp = createGalleryItemsLibrary(galleryItems);
+const galleryContainer = document.querySelector(".gallery");
+const galleryMarkUp = createGalleryItemsLibrary(galleryItems);
 
-gallaryContainer.insertAdjacentHTML("beforeend", gallaryMarkUp);
+galleryContainer.insertAdjacentHTML("beforeend", galleryMarkUp);
 
 function createGalleryItemsLibrary(galleryItems) {
   const gallery = galleryItems
