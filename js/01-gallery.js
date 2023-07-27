@@ -1,5 +1,4 @@
 import { galleryItems } from "./gallery-items.js";
-// Змінна galleryItems містить імпорт з іншого файлу зображень галереї.
 
 // Change code below this line
 
