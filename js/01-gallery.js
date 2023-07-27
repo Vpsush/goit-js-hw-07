@@ -7,21 +7,36 @@ const galleryMarkUp = createGalleryItemsLibrary(galleryItems);
 galleryContainer.insertAdjacentHTML("beforeend", galleryMarkUp);
 
 function createGalleryItemsLibrary(galleryItems) {
-  const gallery = galleryItems
+  return galleryItems
     .map(({ preview, original, description }) => {
-      return ` 
-        <li class = "pictures">
-        <a class="link" 
-        href="${original}">
-        <img class= "images"
-        src="${preview}"
-        alt = "${description}"
-        height="360"
-        width = "360"/>
-        </a>
-     </li>`;
+      return `<li class="gallery__item">
+     <a class="gallery__link" href="${original}">
+       <img
+         class="gallery__image"
+         src="${preview}"
+         data-source="${original}"
+         alt=""${description}"
+       />
+     </a>
+   </li>`;
     })
     .join("");
-  console.log(gallery);
 }
-// console.log(galleryItems);
+
+const instance = basicLightbox.create(
+  `<img width = "1280"
+height = "auto"
+data-source="${original}"
+>`
+);
+
+instance.show();
+// document.querySelector("gallery__link").onclick = () => {
+//   basicLightbox
+//     .create(
+//       `
+// 		<img width="1400" height="900" data-source="${original}">
+// 	`
+//     )
+//     .show();
+// };
