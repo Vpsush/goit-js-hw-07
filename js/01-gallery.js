@@ -31,6 +31,8 @@ data-source="${original}"
 );
 
 instance.show();
+galleryContainer.addEventListener("click", createGalleryItemsLibrary);
+
 // document.querySelector("gallery__link").onclick = () => {
 //   basicLightbox
 //     .create(
