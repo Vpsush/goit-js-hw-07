@@ -1,4 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
+// Змінна galleryItems містить імпорт з іншого файлу зображень галереї.
+
 // Change code below this line
 
 const galleryContainer = document.querySelector(".gallery");
@@ -10,35 +12,28 @@ function createGalleryItemsLibrary(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
       return `<li class="gallery__item">
-     <a class="gallery__link" href="${original}">
-       <img
-         class="gallery__image"
-         src="${preview}"
-         data-source="${original}"
-         alt=""${description}"
-       />
-     </a>
-   </li>`;
+        <a class="gallery__link" href="${original}">
+          <img
+            class="gallery__image"
+            src="${preview}"
+            data-source="${original}"
+            alt="${description}"
+          />
+        </a>
+      </li>`;
     })
     .join("");
 }
 
-const instance = basicLightbox.create(
-  `<img width = "1280"
-height = "auto"
-data-source="${original}"
->`
-);
+galleryContainer.addEventListener("click", handleImageClick);
 
-instance.show();
-galleryContainer.addEventListener("click", createGalleryItemsLibrary);
-
-// document.querySelector("gallery__link").onclick = () => {
-//   basicLightbox
-//     .create(
-//       `
-// 		<img width="1400" height="900" data-source="${original}">
-// 	`
-//     )
-//     .show();
-// };
+function handleImageClick(event) {
+  event.preventDefault();
+  if (event.target.classList.contains("gallery__image")) {
+    const originalImageSrc = event.target.dataset.source;
+    const instance = basicLightbox.create(`
+      <img width="1280" height="auto" src="${originalImageSrc}">
+    `);
+    instance.show();
+  }
+}
